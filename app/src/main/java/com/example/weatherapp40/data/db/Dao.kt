@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeatherModel(weatherModel: WeatherModel)
+    suspend fun insertWeatherModel(weatherModel: WeatherModel)
 
     @Query("SELECT * FROM weatherModel")
     fun getWeatherModels() : List<WeatherModel>
 
     @Query("DELETE FROM weatherModel")
-    fun deleteData()
+    suspend fun deleteData()
 
     @Query("SELECT COUNT(*) FROM weatherModel")
     fun getCount(): Int

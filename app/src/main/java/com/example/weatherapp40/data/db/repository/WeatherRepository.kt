@@ -7,5 +7,5 @@ interface WeatherRepository {
     val weatherData: List<WeatherModel>
     suspend fun insertWeather (weatherModel: WeatherModel)
     suspend fun getWeather(listCities: MutableList<String>): List<WeatherModel>
-    fun delete()
+    suspend fun delete()
 }

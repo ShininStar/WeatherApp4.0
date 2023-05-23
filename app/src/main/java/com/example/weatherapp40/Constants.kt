@@ -7,7 +7,7 @@ object Constants {
     const val BASE_URL = "https://api.weatherapi.com/v1/"
     const val DATA = "data"
     const val CHANNEL_ID = "channel_id"
-    lateinit var REPOSITORY: WeatherRepository
+//    lateinit var REPOSITORY: WeatherRepository
     val startCities = mutableListOf(
         "Moscow",
         "Paris",

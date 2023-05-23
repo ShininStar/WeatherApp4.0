@@ -31,7 +31,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.weatherapp40.Constants.startCities
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         //уведомления о погоде в текущем городе будут показываться каждый час
         model.scheduleNotificationUpdate(this)
         //инициализируем базу данных
-        model.initDataBase(this)
+//        model.initDataBase(this)
     }
 
     override fun onResume() {

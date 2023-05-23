@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
-import com.example.weatherapp40.R
 import com.example.weatherapp40.databinding.FragmentSecondActivityBinding
 import com.example.weatherapp40.view.adapters.VpAdapter
 import com.example.weatherapp40.viewmodel.MainViewModel

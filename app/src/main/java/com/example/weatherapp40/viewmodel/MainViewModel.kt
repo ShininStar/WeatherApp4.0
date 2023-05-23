@@ -12,16 +12,21 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.*
 import com.example.weatherapp40.Constants.CHANNEL_ID
-import com.example.weatherapp40.Constants.REPOSITORY
 import com.example.weatherapp40.Constants.startCities
 import com.example.weatherapp40.data.WeatherModel
 import com.example.weatherapp40.model.apis.WeatherAPI
 import com.example.weatherapp40.data.db.MainDb
+import com.example.weatherapp40.data.db.repository.WeatherRepository
 import com.example.weatherapp40.data.db.repository.WeatherRepositoryImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: WeatherRepository
+) : ViewModel() {
 
     private var _liveDataMain = MutableLiveData<List<WeatherModel>>()
     val liveDataMain: LiveData<List<WeatherModel>> = _liveDataMain
@@ -29,19 +34,19 @@ class MainViewModel : ViewModel() {
     private val _liveDataCurrent = MutableLiveData<WeatherModel>()
     val liveDataCurrent: LiveData<WeatherModel> = _liveDataCurrent
 
-    fun initDataBase(context: Context) {
-        val mainDb = MainDb.getDb(context)
-        REPOSITORY = WeatherRepositoryImpl(WeatherAPI.create(), mainDb)
-    }
+//    fun initDataBase(context: Context) {
+//        val mainDb = MainDb.getDb(context)
+//        REPOSITORY = WeatherRepositoryImpl(WeatherAPI.create(), mainDb)
+//    }
 
     //если в базе данных сохранены предыдущие данные, то берем их, а потом обновляем
     suspend fun getWeather() {
         viewModelScope.launch(Dispatchers.IO) {
-            if (REPOSITORY.weatherData.isNotEmpty()) {
-                _liveDataMain.postValue(REPOSITORY.weatherData)
-                REPOSITORY.delete()
+            if (repository.weatherData.isNotEmpty()) {
+                _liveDataMain.postValue(repository.weatherData)
+                repository.delete()
             }
-            _liveDataMain.postValue(REPOSITORY.getWeather(startCities))
+            _liveDataMain.postValue(repository.getWeather(startCities))
         }
     }
 

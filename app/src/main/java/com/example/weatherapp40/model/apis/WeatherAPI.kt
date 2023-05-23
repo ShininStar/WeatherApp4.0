@@ -15,15 +15,15 @@ interface WeatherAPI {
     @GET("forecast.json?key=$API_KEY&days=3&aqi=no&alerts=no")
     suspend fun getWeather(@Query("q") city: String): WeatherModel
 
-    companion object {
-        fun create() : WeatherAPI {
-            val interceptor = HttpLoggingInterceptor()
-            interceptor.level = HttpLoggingInterceptor.Level.BODY
-            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-            val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL).client(client)
-                .addConverterFactory(GsonConverterFactory.create()).build()
-            return retrofit.create(WeatherAPI::class.java)
-        }
-    }
+//    companion object {
+//        fun create() : WeatherAPI {
+//            val interceptor = HttpLoggingInterceptor()
+//            interceptor.level = HttpLoggingInterceptor.Level.BODY
+//            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+//            val retrofit = Retrofit.Builder()
+//            .baseUrl(BASE_URL).client(client)
+//                .addConverterFactory(GsonConverterFactory.create()).build()
+//            return retrofit.create(WeatherAPI::class.java)
+//        }
+//    }
 }
