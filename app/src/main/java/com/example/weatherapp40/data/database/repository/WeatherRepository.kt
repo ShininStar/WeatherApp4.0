@@ -1,7 +1,6 @@
-package com.example.weatherapp40.data.db.repository
+package com.example.weatherapp40.data.database.repository
 
-import com.example.weatherapp40.data.WeatherModel
-import kotlinx.coroutines.flow.Flow
+import com.example.weatherapp40.data.model.WeatherModel
 
 interface WeatherRepository {
     val weatherData: List<WeatherModel>

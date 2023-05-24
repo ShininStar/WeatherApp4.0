@@ -1,17 +1,12 @@
-package com.example.weatherapp40.model.apis
+package com.example.weatherapp40.data.model.api
 
 import com.example.weatherapp40.Constants.API_KEY
-import com.example.weatherapp40.Constants.BASE_URL
-import com.example.weatherapp40.data.WeatherModel
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.weatherapp40.data.model.WeatherModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 //создаем интерфейс для запроса на сервер (Retrofit)
-interface WeatherAPI {
+interface WeatherApi {
     @GET("forecast.json?key=$API_KEY&days=3&aqi=no&alerts=no")
     suspend fun getWeather(@Query("q") city: String): WeatherModel
 

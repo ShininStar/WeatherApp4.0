@@ -1,8 +1,7 @@
-package com.example.weatherapp40.data.db
+package com.example.weatherapp40.data.database
 
-import android.content.Context
 import androidx.room.*
-import com.example.weatherapp40.data.WeatherModel
+import com.example.weatherapp40.data.model.WeatherModel
 
 //класс базы даннх Room
 

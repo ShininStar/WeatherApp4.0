@@ -7,8 +7,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.weatherapp40.Constants.DATA
 import com.example.weatherapp40.R
-import com.example.weatherapp40.data.Forecatday
-import com.example.weatherapp40.data.WeatherModel
+import com.example.weatherapp40.data.model.WeatherModel
 import com.example.weatherapp40.view.fragments.SecondActivityFragment
 import com.example.weatherapp40.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

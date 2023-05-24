@@ -1,8 +1,7 @@
-package com.example.weatherapp40.data.db
+package com.example.weatherapp40.data.database
 import androidx.room.*
 import androidx.room.Dao
-import com.example.weatherapp40.data.WeatherModel
-import kotlinx.coroutines.flow.Flow
+import com.example.weatherapp40.data.model.WeatherModel
 
 @Dao
 interface Dao {

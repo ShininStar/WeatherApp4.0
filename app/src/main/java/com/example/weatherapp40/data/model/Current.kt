@@ -1,4 +1,4 @@
-package com.example.weatherapp40.data
+package com.example.weatherapp40.data.model
 
 import android.os.Parcelable
 import androidx.room.Embedded

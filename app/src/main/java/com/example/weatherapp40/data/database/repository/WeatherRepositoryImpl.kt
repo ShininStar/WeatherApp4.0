@@ -1,15 +1,17 @@
-package com.example.weatherapp40.data.db.repository
+package com.example.weatherapp40.data.database.repository
 
 
-import com.example.weatherapp40.data.WeatherModel
-import com.example.weatherapp40.data.db.Dao
-import com.example.weatherapp40.data.db.MainDb
-import com.example.weatherapp40.model.apis.WeatherAPI
-import kotlinx.coroutines.coroutineScope
+import com.example.weatherapp40.data.model.WeatherModel
+import com.example.weatherapp40.data.database.Dao
+import com.example.weatherapp40.data.model.api.WeatherApi
+import javax.inject.Inject
 
 //класс для соединения базы даннхы и weatherApi
 
-class WeatherRepositoryImpl(private val weatherAPI: WeatherAPI, private val dao: Dao) : WeatherRepository {
+class WeatherRepositoryImpl @Inject constructor(
+    private val weatherAPI: WeatherApi,
+    private val dao: Dao
+    ) : WeatherRepository {
     override val weatherData: List<WeatherModel>
         get() = dao.getWeatherModels()
 

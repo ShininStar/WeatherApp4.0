@@ -17,7 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.weatherapp40.Constants
-import com.example.weatherapp40.data.WeatherModel
+import com.example.weatherapp40.data.model.WeatherModel
 import com.example.weatherapp40.databinding.ActivityMainBinding
 import com.example.weatherapp40.view.adapters.ItemTouchHelperCallback
 import com.example.weatherapp40.view.adapters.WeatherAdapter

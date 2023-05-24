@@ -13,11 +13,8 @@ import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.*
 import com.example.weatherapp40.Constants.CHANNEL_ID
 import com.example.weatherapp40.Constants.startCities
-import com.example.weatherapp40.data.WeatherModel
-import com.example.weatherapp40.model.apis.WeatherAPI
-import com.example.weatherapp40.data.db.MainDb
-import com.example.weatherapp40.data.db.repository.WeatherRepository
-import com.example.weatherapp40.data.db.repository.WeatherRepositoryImpl
+import com.example.weatherapp40.data.model.WeatherModel
+import com.example.weatherapp40.data.database.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp40.R
-import com.example.weatherapp40.data.Forecatday
+import com.example.weatherapp40.data.model.Forecatday
 import com.example.weatherapp40.databinding.ListDaysHoursBinding
 import com.squareup.picasso.Picasso
 

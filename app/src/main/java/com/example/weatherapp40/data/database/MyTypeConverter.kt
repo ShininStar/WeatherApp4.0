@@ -1,9 +1,7 @@
-package com.example.weatherapp40.data.db
+package com.example.weatherapp40.data.database
 
 import androidx.room.TypeConverter
-import com.example.weatherapp40.data.Forecatday
-import com.example.weatherapp40.data.Hour
-import com.example.weatherapp40.data.WeatherModel
+import com.example.weatherapp40.data.model.Forecatday
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
