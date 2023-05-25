@@ -26,14 +26,15 @@ class SecondActivityFragment : Fragment() {
         "Days"
     )
 
-    private lateinit var binding: FragmentSecondActivityBinding
+    private var _binding: FragmentSecondActivityBinding? = null
+    private val binding get() = _binding!!
     private val model: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondActivityBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondActivityBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,6 +42,11 @@ class SecondActivityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         init()
         updateCurrenCard()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     //подключаем vpAdapter и кнопку поделиться

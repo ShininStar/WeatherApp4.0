@@ -14,7 +14,8 @@ import com.example.weatherapp40.viewmodel.MainViewModel
 class HoursFragment : Fragment() {
 
     //заоплняем погоду по часам через WeatherHoursAdapter
-    private lateinit var binding: FragmentHoursBinding
+    private var _binding: FragmentHoursBinding? = null
+    private val binding get() = _binding!!
     private lateinit var adapter: WeatherHourAdapter
     private val model: MainViewModel by activityViewModels()
 
@@ -22,7 +23,7 @@ class HoursFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHoursBinding.inflate(inflater, container, false)
+        _binding = FragmentHoursBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,6 +31,11 @@ class HoursFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         init()
         observe()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun init() = with(binding) {

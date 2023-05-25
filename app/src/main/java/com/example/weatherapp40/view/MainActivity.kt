@@ -31,6 +31,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.weatherapp40.Constants.startCities
+import com.example.weatherapp40.notifications.Notification
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,12 +53,8 @@ class MainActivity : AppCompatActivity() {
         //Провермя разрешения на геопозицию, если оно есть то получаем координаты и отправляем запрос на сервер
         checkLocation()
         init()
-        //делаем канал уведомления
-        model.createNotificationChannel(this)
-        //уведомления о погоде в текущем городе будут показываться каждый час
-        model.scheduleNotificationUpdate(this)
-        //инициализируем базу данных
-//        model.initDataBase(this)
+        //Создаем уведомления какждый час
+        createNotification()
     }
 
     override fun onResume() {
@@ -100,6 +97,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
+        }
+    }
+
+    private fun createNotification() {
+        model.liveDataMain.observe(this) {
+            val notification = Notification(it[it.lastIndex])
+            //делаем канал уведомления
+            notification.createNotificationChannel(this)
+            //уведомления о погоде в текущем городе будут показываться каждый час
+            notification.scheduleNotificationUpdate(this)
         }
     }
 

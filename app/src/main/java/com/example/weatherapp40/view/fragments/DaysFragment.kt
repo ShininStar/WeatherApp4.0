@@ -15,7 +15,8 @@ import com.example.weatherapp40.viewmodel.MainViewModel
 class DaysFragment : Fragment() {
 
     //заоплняем погоду по дням через WeatherDayAdapter
-    private lateinit var binding: FragmentDaysBinding
+    private var _binding: FragmentDaysBinding? = null
+    private val binding get() = _binding!!
     private lateinit var adapter: WeatherDayAdapter
     private val model: MainViewModel by activityViewModels()
 
@@ -23,7 +24,7 @@ class DaysFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDaysBinding.inflate(inflater, container, false)
+        _binding = FragmentDaysBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,6 +32,11 @@ class DaysFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         init()
         observe()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun init() = with(binding) {
